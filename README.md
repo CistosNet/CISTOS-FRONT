@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# CistosNet 🏥
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> O CistosNet é uma aplicação web desenvolvida em React para classificação, segmentação e contagem automatizada de folículos  ovarianos em imagens médicas. A ferramenta utiliza algoritmos de processamento de imagem para auxiliar profissionais da saúde em diagnósticos reprodutivos.
 
-## Available Scripts
+> Sistema de Classificação, Segmentação e Contagem Automatizada de Folículos Ovarianos
 
-In the project directory, you can run:
+## 📋 Tabela de Conteúdos
+- [Visão Geral](#-visão-geral)
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias](#-tecnologias)
+- [Instalação](#-instalação)
+- [Uso](#-uso)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Contribuição](#-contribuição)
+- [Licença](#-licença)
+- [Contato](#-contato)
 
-### `npm start`
+## 🌟 Visão Geral
+Aplicação web para análise de imagens médicas, proporcionando:
+- 🖥️ Interface intuitiva para upload de imagens
+- 🔬 Processamento automatizado via algoritmos de IA
+- 📈 Relatórios detalhados com visualizações gráficas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🎯 Funcionalidades
+| Feature | Descrição |
+|---------|-----------|
+| Upload de Imagens | Suporte para JPEG, PNG, TIFF |
+| Segmentação | Identificação precisa de folículos |
+| Classificação | Categorização por estágio de desenvolvimento |
+| Dashboard | Visualização interativa dos resultados |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Tecnologias
+**Frontend:**
+<p align="left">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+  <img src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=mui&logoColor=white" alt="MUI">
+  <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js">
+</p>
 
-### `npm test`
+**Backend (Futuro):**
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💻 Instalação
+```bash
+# Clone o repositório
+git clone https://github.com/gustavsonbarros/cistosnet-react.git
+cd cistosnet/cistosnet-frontend
 
-### `npm run build`
+# Instale as dependências
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Inicie o servidor de desenvolvimento
+npm start

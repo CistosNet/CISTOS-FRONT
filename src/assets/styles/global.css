@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Estilos para os acordeões */
+.MuiAccordion-root {
+  margin-bottom: 1rem;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+/* Estilo para os passos do processo */
+.MuiStepIcon-root.Mui-completed {
+  color: #4caf50 !important;
+}
+
+.MuiStepIcon-root.Mui-active {
+  color: #1976d2 !important;
+}
