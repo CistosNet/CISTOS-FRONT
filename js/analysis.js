@@ -14,13 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Recupera arquivos selecionados do upload.js
     const fileListContainer = document.getElementById('file-list-container');
     const fileList = document.getElementById('file-list');
+    let selectedFiles = []; // Upload.js precisa popular isso
 
     // Inicia a análise
     analyzeBtn.addEventListener('click', startAnalysis);
 
-    function startAnalysis() {
+    async function startAnalysis() {
         if (!analysisName.value.trim()) {
             alert('Por favor, dê um nome à sua análise.');
+            return;
+        }
+
+        if (selectedFiles.length === 0) {
+            alert('Nenhum arquivo foi selecionado.');
             return;
         }
 
@@ -31,65 +37,109 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Mostra animação de carregamento
         loadingSection.classList.remove('tw-hidden');
+        updateProgress(10);
 
-        // Simula progresso
-        let progress = 0;
-        const interval = setInterval(() => {
-            progress += Math.random() * 10;
-            if (progress > 100) progress = 100;
+        try {
+            // Envia os arquivos para a API FastAPI
+            const formData = new FormData();
+            selectedFiles.forEach(file => {
+                formData.append("file", file); 
+            });
 
-            progressBar.style.width = `${progress}%`;
-            progressText.textContent = `${Math.round(progress)}% completo`;
 
-            if (progress === 100) {
-                clearInterval(interval);
-                setTimeout(showResults, 500);
+            const response = await fetch("http://127.0.0.1:8000/predict/segmentation/Count", {
+                method: "POST",
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error("Erro no processamento: " + response.status);
             }
-        }, 500);
+
+            const data = await response.json();
+
+            // Armazena os resultados globais
+            analysisResults = data.results || [];
+            reportUrl = data.report_url || null;
+            currentIndex = 0;
+
+            // Mostra a primeira imagem e informações
+            showResults();
+
+        } catch (err) {
+            console.error(err);
+            alert("Erro durante a análise: " + err.message);
+            resetAnalysis();
+        }
+    }
+
+    function updateProgress(value) {
+        progressBar.style.width = `${value}%`;
+        progressText.textContent = `${value}% completo`;
     }
 
     function showResults() {
-        loadingSection.classList.add('tw-hidden');
-        resultsSection.classList.remove('tw-hidden');
-        analysisNameDisplay.textContent = analysisName.value;
+    loadingSection.classList.add('tw-hidden');
+    resultsSection.classList.remove('tw-hidden');
+    analysisNameDisplay.textContent = analysisName.value;
 
-        simulateResults();
+    if (analysisResults.length === 0) return;
 
-        setTimeout(() => {
-            document.querySelector('.tw-result-image-container').classList.add('tw-show');
-        }, 100);
+    const current = analysisResults[currentIndex];
+
+    // Atualiza contadores
+    document.getElementById('total-follicles').textContent = current.info?.cistos || "--";
+    document.getElementById('ovary-volume').textContent = current.info?.volume || "-- cm³";
+    document.getElementById('small-count').textContent = current.info?.small || "--";
+    document.getElementById('medium-count').textContent = current.info?.medium || "--";
+    document.getElementById('large-count').textContent = current.info?.large || "--";
+    document.getElementById('analysis-notes').textContent = current.notes || "";
+
+    // Container de imagens
+    const resultsContainer = document.getElementById('result-images');
+    resultsContainer.innerHTML = "";
+
+    const img = document.createElement('img');
+    img.src = current.image;
+    img.alt = "Resultado da análise";
+    img.className = "tw-w-full tw-h-auto tw-rounded-lg tw-shadow";
+    resultsContainer.appendChild(img);
+
+    // Navegação
+    const navDiv = document.createElement("div");
+    navDiv.className = "tw-flex tw-gap-4 tw-mt-4";
+
+    const prevBtn = document.createElement("button");
+    prevBtn.textContent = "Anterior";
+    prevBtn.disabled = currentIndex === 0;
+    prevBtn.onclick = () => {
+        currentIndex--;
+        showResults();
+    };
+
+    const nextBtn = document.createElement("button");
+    nextBtn.textContent = "Próximo";
+    nextBtn.disabled = currentIndex === analysisResults.length - 1;
+    nextBtn.onclick = () => {
+        currentIndex++;
+        showResults();
+    };
+
+    navDiv.appendChild(prevBtn);
+    navDiv.appendChild(nextBtn);
+    resultsContainer.appendChild(navDiv);
+
+    // Botão relatório
+    if (reportUrl) {
+        const downloadBtn = document.createElement("a");
+        downloadBtn.href = reportUrl;
+        downloadBtn.download = "relatorio.zip"; 
+        downloadBtn.textContent = "Baixar Relatório";
+        downloadBtn.className = "tw-bg-blue-600 tw-text-white tw-px-4 tw-py-2 tw-rounded";
+        resultsContainer.appendChild(downloadBtn);
     }
+}
 
-    function simulateResults() {
-        const totalFollicles = Math.floor(Math.random() * 30) + 10;
-        const small = Math.floor(totalFollicles * 0.6);
-        const medium = Math.floor(totalFollicles * 0.3);
-        const large = totalFollicles - small - medium;
-        const volume = (Math.random() * 15 + 5).toFixed(1);
-
-        document.getElementById('total-follicles').textContent = totalFollicles;
-        document.getElementById('ovary-volume').textContent = `${volume} cm³`;
-
-        document.getElementById('small-count').textContent = small;
-        document.getElementById('medium-count').textContent = medium;
-        document.getElementById('large-count').textContent = large;
-
-        document.getElementById('small-bar').style.width = `${(small / totalFollicles) * 100}%`;
-        document.getElementById('medium-bar').style.width = `${(medium / totalFollicles) * 100}%`;
-        document.getElementById('large-bar').style.width = `${(large / totalFollicles) * 100}%`;
-
-        resultImage.src = 'https://via.placeholder.com/600x400/4f46e5/ffffff?text=Imagem+Analisada';
-
-        let notes = '';
-        if (totalFollicles >= 12) {
-            notes = 'A análise sugere um padrão policístico com múltiplos pequenos folículos distribuídos perifericamente.';
-        } else if (totalFollicles >= 8) {
-            notes = 'A análise mostra um número moderado de folículos, alguns deles com características policísticas.';
-        } else {
-            notes = 'A análise não sugere um padrão policístico claro, com número normal de folículos.';
-        }
-        document.getElementById('analysis-notes').textContent = notes;
-    }
 
     newAnalysisBtn.addEventListener('click', resetAnalysis);
 
@@ -99,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
         analysisName.value = '';
         progressBar.style.width = '0%';
         progressText.textContent = '0% completo';
+        selectedFiles = [];
 
         loadingSection.classList.add('tw-hidden');
         resultsSection.classList.add('tw-hidden');
@@ -108,5 +159,10 @@ document.addEventListener('DOMContentLoaded', function() {
         fileListContainer.classList.add('tw-hidden');
         stepName.classList.add('tw-hidden');
         analyzeBtn.classList.add('tw-hidden');
+    }
+
+    // Importante: o upload.js deve preencher "selectedFiles"
+    window.setSelectedFiles = function(files) {
+        selectedFiles = files;
     }
 });

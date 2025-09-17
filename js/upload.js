@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
             stepName.classList.remove('tw-hidden');
             analyzeBtn.classList.remove('tw-hidden');
         }
+        if (window.setSelectedFiles) {
+            window.setSelectedFiles(selectedFiles);
+        }
+
     }
 
     function updateFileList() {
@@ -99,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
 
-    // Expor selectedFiles para outros scripts se necessário
-    window.uploadState = { selectedFiles };
+// Expor função global para pegar arquivos selecionados
+window.getSelectedFiles = () => selectedFiles;
+
 });
