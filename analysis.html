@@ -2,40 +2,22 @@
 <html lang="en">
 
 <head>
-  <!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
-
-  <title> CistoNet </title>
-
-  <!-- bootstrap core css -->
+  <title> CistosNet </title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/analysis.css">
-  
-
-  <!-- fonts style -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
-    rel="stylesheet">
-
-  <!-- font awesome style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet" />
-  
-
-  <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 
 <body class="sub_page">
 
@@ -44,320 +26,165 @@
       <img src="images/hero-bg.png" alt="">
     </div>
 
-    <!-- header section starts -->
     <header class="header_section">
-  <div class="container">
-    <nav id="departments-navbar" class="navbar navbar-expand-lg custom_nav-container">
-      <a class="navbar-brand" href="index.html">
-        <span>CistoNet</span>
-      </a>
+      <div class="container">
+        <nav id="departments-navbar" class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="index.html">
+            <span>CistosNet</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class=""> </span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="analysis.html"> Análise
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="history.html">Histórico</a>
-          </li>
-        </ul>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="analysis.html">Análise</a></li>
+              <li class="nav-item active"><a class="nav-link" href="history.html">Histórico</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-    </nav>
-  </div>
-</header>
-
-    <!-- end header section -->
+    </header>
   </div>
 
   <section class="department_section layout_padding">
     <div class="department_container">
-        <div class="container ">
-          <div class="heading_container heading_center">
-          <h2>
-            Análise
-          </h2>
-        
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h2>Análise</h2>
         </div>
 
+        <div class="row" style="min-height:200px; margin-top: 50px;">
+          <div class="tw-container tw-mx-auto tw-px-4 tw-py-4 tw-max-w-4xl tw-w-full">
 
-            <!-- Conteúdo do sistema de análise -->
-            <div class="row" style="min-height:200px; margin-top: 50px;">
-                <div class="tw-container tw-mx-auto tw-px-4 tw-py-4 tw-max-w-4xl tw-w-full">
-                    <!-- Passo 1: Upload de arquivos -->
-                    <div id="step-upload" class="tw-mb-4">
-                        <h2 style="font-size: 20px; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">
-                          1. Selecione as imagens para análise
-                        </h2>
-
-                        <div class="tw-dropzone tw-rounded-lg tw-p-8 tw-text-center tw-mb-4" id="dropzone">
-                            <div class="tw-flex tw-flex-col tw-items-center tw-justify-center">
-                                <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; color: #64d4a4; margin-bottom: 1rem;"></i>
-
-                                <p class="tw-text-gray-600 tw-mb-4">Arraste e solte seus arquivos de ultrassom aqui ou</p>
-                                <div class="tw-flex tw-flex-col sm:tw-flex-row tw-gap-4">
-                                   <button id="select-files-btn" style="background-color: #64d4a4; color: white; font-weight: 500; padding: 0.5rem 1.5rem; border-radius: 0.5rem; transition: all 0.3s;">
-                                    <i class="fas fa-file-image" style="margin-right: 0.5rem;"></i> Selecionar Arquivos
-                                  </button>
-
-                                    <button id="select-folder-btn" style="background-color: #64d4a4; color: white; font-weight: 500; padding: 0.5rem 1.5rem; border-radius: 0.5rem; transition: all 0.3s;">
-                                      <i class="fas fa-folder" style="margin-right: 0.5rem;"></i> Selecionar Pasta
-                                    </button>
-
-                                </div>
-                                <p class="tw-text-sm tw-text-gray-500 tw-mt-4">Formatos suportados: JPG, PNG, DICOM, MP4, AVI, MOV, MKV</p>
-                            </div>
-                            <input type="file" id="file-input" class="tw-hidden" multiple accept="image/jpeg,image/png,.dcm">
-                            <input type="file" id="folder-input" class="tw-hidden" webkitdirectory directory multiple accept="image/jpeg,image/png,.dcm">
-                        </div>
-
-                        <div id="file-list-container" class="tw-hidden">
-                            <h3 class="tw-text-xl tw-font-semibold tw-text-gray-800 tw-mb-4">Arquivos selecionados:</h3>
-                            <div id="file-list" class="tw-border tw-rounded-lg tw-divide-y tw-divide-gray-200 tw-max-h-60 tw-overflow-y-auto"></div>
-                        </div>
-                    </div>
-
-                    <!-- Passo 2: Nome da análise -->
-                    <div id="step-name" class="tw-mb-4 tw-hidden">
-                        <h2 class="tw-text-xl tw-font-semibold tw-text-gray-800 tw-mb-4">2. Nomeie sua análise</h2>
-                        <div class="tw-max-w-md">
-                            <label for="analysis-name" class="tw-block tw-text-sm tw-font-medium tw-text-gray-700 tw-mb-1">Nome da análise</label>
-                            <input type="text" id="analysis-name" class="tw-w-full tw-px-4 tw-py-2 tw-border tw-border-gray-300 tw-rounded-lg focus:tw-ring-indigo-500 focus:tw-border-indigo-500" placeholder="Ex: Paciente Maria - 05/2025">
-                            <p class="tw-mt-1 tw-text-sm tw-text-gray-500">Este nome ajudará a identificar sua análise posteriormente.</p>
-                        </div>
-                    </div>
-
-                    <!-- Botão de análise -->
-                    <div class="tw-flex tw-justify-center">
-                       <button id="analyze-btn" 
-                              class="tw-hidden tw-text-white tw-font-medium tw-py-3 tw-px-8 tw-rounded-lg tw-transition tw-duration-300 tw-shadow-lg"
-                              style="background-color: #148464;">
-                          <i class="fas fa-play tw-mr-2"></i> Iniciar Análise
-                      </button>
-
-                    </div>
-
-                    <!-- Animação de carregamento -->
-                    <div id="loading-section" class="tw-hidden tw-mt-8 tw-text-center">
-                        <div class="tw-animate-bounce tw-mb-4">
-                          <i class="fas fa-microscope tw-text-6xl" style="color: #148464;"></i>
-                        </div>
-
-                        <h3 class="tw-text-xl tw-font-medium tw-text-gray-800 tw-mb-2">Analisando suas imagens</h3>
-                        <p class="tw-text-gray-600">Estamos processando suas imagens de ultrassom para identificar e contar os folículos ovarianos.</p>
-                        <div class="tw-w-full tw-bg-gray-200 tw-rounded-full tw-h-2.5 tw-mt-4 tw-max-w-md tw-mx-auto">
-                            <div id="progress-bar" class="tw-h-2.5 tw-rounded-full" style="width: 0%; background-color: #148464;"></div>
-
-                        </div>
-                        <p id="progress-text" class="tw-text-sm tw-text-gray-500 tw-mt-2">0% completo</p>
-                    </div>
-
-                    <!-- Resultados -->
-                    <div id="results-section" class="tw-hidden tw-mt-8">
-                        <div class="tw-border-b tw-border-gray-200 tw-pb-4 tw-mb-6">
-                            <h2 class="tw-text-2xl tw-font-bold tw-text-gray-800">Resultados da Análise</h2>
-                            <p id="analysis-name-display" class="tw-text-gray-600"></p>
-                        </div>
-                        <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6">
-                            <div>
-                                <h3 class="tw-font-medium tw-text-gray-700 tw-mb-3">Imagens analisadas com marcações</h3>
-                                <div class="tw-result-image-container tw-bg-gray-100 tw-rounded-lg tw-overflow-hidden">
-                                    <div id="result-images" class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-bg-gray-100 tw-rounded-lg tw-p-4">
-                                        <!-- As imagens aparecerão aqui -->
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div>
-                                <h3 class="tw-font-medium tw-text-gray-700 tw-mb-3">Dados da análise</h3>
-                                <div class="tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-p-4 tw-shadow-sm">
-                                    <div class="tw-grid tw-grid-cols-2 tw-gap-4">
-                                       <div class="tw-p-3 tw-rounded-lg" style="background-color: #e3f5e0;">
-                                            <p class="tw-text-sm tw-font-medium" style="color: #000000;"></p>Total de folículos</p>
-                                            <p id="total-follicles"class="tw-text-2xl tw-font-bold" style="color: #000000;">--</p>
-                                        </div>
-                                        <div class="tw-p-3 tw-rounded-lg" style="background-color: #e3f5e0;">
-                                           <p class="tw-text-sm tw-font-medium" style="color: #000000;"></p>Volume ovariano</p>
-                                            <p id="ovary-volume" class="tw-text-2xl tw-font-bold" style="color: #000000;">-- cm³</p>
-                                        </div>
-                                    </div>
-                                    <div class="tw-mt-4">
-                                        <h4 class="tw-text-sm tw-font-medium tw-text-gray-700 tw-mb-2">Distribuição por tamanho</h4>
-                                        <div class="tw-space-y-2">
-                                            <div>
-                                                <div class="tw-flex tw-justify-between tw-text-xs tw-text-gray-600 tw-mb-1">
-                                                    <span>2-5mm</span>
-                                                    <span id="small-count">0</span>
-                                                </div>
-                                                <div class="tw-w-full tw-bg-gray-200 tw-rounded-full tw-h-2">
-                                                    <div id="small-bar" class="tw-bg-blue-500 tw-h-2 tw-rounded-full" style="width: 0%; background-color: #64d4a4;"></div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="tw-flex tw-justify-between tw-text-xs tw-text-gray-600 tw-mb-1">
-                                                    <span>6-9mm</span>
-                                                    <span id="medium-count">0</span>
-                                                </div>
-                                                <div class="tw-w-full tw-bg-gray-200 tw-rounded-full tw-h-2">
-                                                    <div id="medium-bar" class="tw-bg-indigo-500 tw-h-2 tw-rounded-full" style="width: 0%; background-color: #96d8ac;"></div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="tw-flex tw-justify-between tw-text-xs tw-text-gray-600 tw-mb-1">
-                                                    <span>≥10mm</span>
-                                                    <span id="large-count">0</span>
-                                                </div>
-                                                <div class="tw-w-full tw-bg-gray-200 tw-rounded-full tw-h-2">
-                                                    <div id="large-bar" class="tw-bg-purple-500 tw-h-2 tw-rounded-full" style="width: 0%; background-color: #e3f5e0;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tw-mt-4">
-                                        <h4 class="tw-text-sm tw-font-medium tw-text-gray-700 tw-mb-2">Observações</h4>
-                                        <p id="analysis-notes" class="tw-text-sm tw-text-gray-600">A análise sugere um padrão policístico com múltiplos pequenos folículos distribuídos perifericamente.</p>
-                                    </div>
-                                </div>
-                                <div class="tw-mt-4 tw-flex tw-justify-end">
-                                    <button class="btn-green-outline tw-font-medium tw-py-2 tw-px-4 tw-rounded-lg tw-mr-2">
-                                        <i class="fas fa-download tw-mr-2"></i> Baixar Relatório
-                                    </button>
-                                    <button id="new-analysis-btn" class="btn-green-outline tw-font-medium tw-py-2 tw-px-4 tw-rounded-lg tw-mr-2">
-                                        <i class="fas fa-redo tw-mr-2"></i> Nova Análise
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Passo 1: Upload -->
+            <div id="step-upload" class="tw-mb-4">
+              <h2 style="font-size:20px; font-weight:600; color:#1f2937; margin-bottom:1rem;">
+                1. Selecione as imagens para análise
+              </h2>
+              <div class="tw-dropzone tw-rounded-lg tw-p-8 tw-text-center tw-mb-4" id="dropzone">
+                <div class="tw-flex tw-flex-col tw-items-center tw-justify-center">
+                  <i class="fas fa-cloud-upload-alt" style="font-size:3rem; color:#64d4a4; margin-bottom:1rem;"></i>
+                  <p class="tw-text-gray-600 tw-mb-4">Arraste e solte seus arquivos de ultrassom aqui ou</p>
+                  <div class="tw-flex tw-flex-col sm:tw-flex-row tw-gap-4">
+                    <button id="select-files-btn"
+                      style="background-color:#64d4a4;color:white;font-weight:500;padding:0.5rem 1.5rem;border-radius:0.5rem;">
+                      <i class="fas fa-file-image" style="margin-right:0.5rem;"></i> Selecionar Arquivos
+                    </button>
+                    <button id="select-folder-btn"
+                      style="background-color:#64d4a4;color:white;font-weight:500;padding:0.5rem 1.5rem;border-radius:0.5rem;">
+                      <i class="fas fa-folder" style="margin-right:0.5rem;"></i> Selecionar Pasta
+                    </button>
+                  </div>
+                  <p class="tw-text-sm tw-text-gray-500 tw-mt-4">Formatos suportados: JPG, PNG, DICOM</p>
                 </div>
+                <input type="file" id="file-input" class="tw-hidden" multiple 
+                      accept="image/jpeg,image/png,.dcm,video/mp4,video/avi,video/mov,video/mkv">
+                <input type="file" id="folder-input" class="tw-hidden" webkitdirectory directory multiple
+                  accept="image/jpeg,image/png,.dcm">
+              </div>
+
+              <div id="file-list-container" class="tw-hidden">
+                <h3 class="tw-text-xl tw-font-semibold tw-text-gray-800 tw-mb-4">Arquivos selecionados:</h3>
+                <div id="file-list"
+                  class="tw-border tw-rounded-lg tw-divide-y tw-divide-gray-200 tw-max-h-60 tw-overflow-y-auto"></div>
+              </div>
             </div>
+
+            <!-- Passo 2: Nome -->
+            <div id="step-name" class="tw-mb-4 tw-hidden">
+              <h2 class="tw-text-xl tw-font-semibold tw-text-gray-800 tw-mb-4">2. Nomeie sua análise</h2>
+              <div class="tw-max-w-md">
+                <label for="analysis-name"
+                  class="tw-block tw-text-sm tw-font-medium tw-text-gray-700 tw-mb-1">Nome da análise</label>
+                <input type="text" id="analysis-name"
+                  class="tw-w-full tw-px-4 tw-py-2 tw-border tw-border-gray-300 tw-rounded-lg focus:tw-ring-indigo-500 focus:tw-border-indigo-500"
+                  placeholder="Ex: Paciente Maria">
+                <p class="tw-mt-1 tw-text-sm tw-text-gray-500">Este nome ajudará a identificar sua análise posteriormente.</p>
+              </div>
+            </div>
+
+            <div class="tw-flex tw-justify-center">
+              <button id="analyze-btn"
+                class="tw-hidden tw-text-white tw-font-medium tw-py-3 tw-px-8 tw-rounded-lg tw-transition tw-duration-300 tw-shadow-lg"
+                style="background-color: #148464;">
+                <i class="fas fa-play tw-mr-2"></i> Iniciar Análise
+              </button>
+            </div>
+
+            <!-- Carregamento -->
+            <div id="loading-section" class="tw-hidden tw-mt-8 tw-text-center">
+              <div class="tw-animate-bounce tw-mb-4">
+                <i class="fas fa-microscope tw-text-6xl" style="color: #148464;"></i>
+              </div>
+              <h3 class="tw-text-xl tw-font-medium tw-text-gray-800 tw-mb-2">Analisando suas imagens</h3>
+              <p class="tw-text-gray-600">Processando imagens para identificar cistos.</p>
+              <div class="tw-w-full tw-bg-gray-200 tw-rounded-full tw-h-2.5 tw-mt-4 tw-max-w-md tw-mx-auto">
+                <div id="progress-bar" class="tw-h-2.5 tw-rounded-full" style="width:0%;background-color:#148464;"></div>
+              </div>
+              <p id="progress-text" class="tw-text-sm tw-text-gray-500 tw-mt-2">0% completo</p>
+            </div>
+
+            <!-- Resultados -->
+            <div id="results-section" class="tw-hidden tw-mt-8">
+              <div class="tw-border-b tw-border-gray-200 tw-pb-4 tw-mb-6">
+                <h2 class="tw-text-2xl tw-font-bold tw-text-gray-800">Resultados da Análise</h2>
+                <p id="analysis-name-display" class="tw-text-gray-600"></p>
+              </div>
+
+              <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6">
+                <div>
+                  <h3 class="tw-font-medium tw-text-gray-700 tw-mb-3">Imagem</h3>
+                  <div id="result-images" class="tw-bg-gray-100 tw-rounded-lg tw-p-4 tw-grid tw-place-items-center">
+                    <!-- Imagem atual -->
+                  </div>
+                  <div class="tw-flex tw-justify-between tw-mt-4">
+                    <button id="prev-btn" class="btn-green-outline tw-font-medium tw-py-2 tw-px-4 tw-rounded-lg"> <i class="fas fa-arrow-left tw-mr-2"></i> Anterior </button>
+                    <span id="image-counter" class="tw-font-medium tw-text-gray-700">1 de 1</span>
+                    <button id="next-btn" class="btn-green-outline tw-font-medium tw-py-2 tw-px-4 tw-rounded-lg"> Próxima <i class="fas fa-arrow-right tw-ml-2"></i> </button>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="tw-font-medium tw-text-gray-700 tw-mb-3">Total de Cistos</h3>
+                  <p id="total-follicles" class="tw-text-2xl tw-font-bold" style="color:#000;">--</p>
+
+                  <div class="tw-mt-4 tw-flex tw-justify-end">
+                    <a id="download-report-btn" href="#" class="btn-green-outline tw-font-medium tw-py-2 tw-px-4 tw-rounded-lg tw-mr-2" style="display:none;">
+                      <i class="fas fa-download tw-mr-2"></i> Baixar Relatório
+                    </a>
+                    <button id="new-analysis-btn" class="btn-green-outline tw-font-medium tw-py-2 tw-px-4 tw-rounded-lg tw-mr-2">
+                      <i class="fas fa-redo tw-mr-2"></i> Nova Análise
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-    </div>
-</section>
       </div>
     </div>
   </section>
-  <!-- end department section -->
 
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
-      <div class="row">
-        <!-- Contact -->
-        <div class="col-md-6 col-lg-3 footer_col">
-          <div class="footer_contact">
-            <h4>Reach at..</h4>
-            <div class="contact_link_box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>Location</span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>Call +01 1234567890</span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>demo@gmail.com</span>
-              </a>
-            </div>
-          </div>
-          <div class="footer_social">
-            <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-          </div>
-        </div>
-
-        <!-- About -->
-        <div class="col-md-6 col-lg-3 footer_col">
-          <div class="footer_detail">
-            <h4>
-              Sobre
-            </h4>
-            <p>
-              Sistema criado por estudantes do IFPE para análise de ultrassons, auxiliando no diagnóstico de ovários policísticos com precisão e acessibilidade.
-            </p>
-
-
-          </div>
-        </div>
-
-        <!-- Links -->
-        <div class="col-md-6 col-lg-2 mx-auto footer_col">
-          <div class="footer_link_box">
-            <h4>Links</h4>
-            <div class="footer_links">
-              <a href="index.html">Home</a>
-              <a class="active" href="analysis.html">Análise</a>
-              <a href="history.html">Histórico</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Newsletter -->
-        <div class="col-md-6 col-lg-3 footer_col">
-          <h4>Equipe</h4>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="margin-bottom: 6px;">Estudantes do IFPE – Campus Palmares e Paulista</li>
-            <li style="margin-bottom: 6px;">Orientação: Prof. Diogo Lopes</li>
-            <li>Apoio técnico: Dr. Roberto Luiz Reis Gomes</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-info">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/"> Free Html Templates</a>
-          <br /><br />
-          &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/"> ThemeWagon</a>
-        </p>
-      </div>
+      <p>&copy; <span id="displayYear"></span> CistosNet</p>
     </div>
   </footer>
-  <!-- end footer section -->
 
- <!-- jQery -->
-<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-<!-- popper js -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-  crossorigin="anonymous"></script>
-<!-- bootstrap js -->
-<script type="text/javascript" src="js/bootstrap.js"></script>
-
-
-<!-- scripts separados -->
-<script type="text/javascript" src="js/upload.js"></script>
-<script type="text/javascript" src="js/analysis.js"></script>
-
-<!-- custom js antigo (se tiver código extra, pode permanecer) -->
-<script type="text/javascript" src="js/custom.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    corePlugins: {
-      preflight: false,
-    },
-    prefix: 'tw-', 
-  }
-</script>
-
-
-
+  <!-- Scripts -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/upload.js"></script>
+  <script src="js/analysis.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { corePlugins:{preflight:false}, prefix:'tw-' }
+  </script>
 </body>
-
 </html>
